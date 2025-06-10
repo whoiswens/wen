@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <div>
+            <div>
+                <span>ID:</span>
+                <span>{{ todo.id }}</span>
+            </div>
+            <div>
+                <span>Task:</span>
+                <span>{{ todo.task }}</span>
+            </div>
+            <div>
+                <span>Status:</span>
+                <span>{{ todo.status }}</span>
+            </div>
+            <div>
+                <span>Created at:</span>
+                <span>{{ todo.created_at }}</span>
+            </div>
+            <div>
+                <span>Updated at:</span>
+                <span>{{ todo.updated_at }}</span>
+            </div>
+        </div>
+
+        <div>
+            <a href="list.php">Back to list</a>
+            <a href="edit.php?id={{ todo.id }}">Edit</a>
+        </div>
+
+        <form action="view.php" method="POST">
+            <input type="hidden" name="id" value="{{ todo.id }}">
+            <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?');">Delete</button>
+        </form>
+
+    </body>
+</html>

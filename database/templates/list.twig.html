@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <H1>Task List</H1>
+        <a href="create.php">Add New</a>
+        <div>
+            <form method="GET" action="list.php">
+                <input type="text" name="search_task" value=""/>
+                <select name="search_status" value="">
+                    <option value="" {% if filter == '' %}selected{% endif %}>Any</option>
+                    <option value="todo" {% if filter == 'todo' %}selected{% endif %}>To Do</option>
+                    <option value="inprogress" {% if filter == 'inprogress' %}selected{% endif %}>In Progressing</option>
+                    <option value="done" {% if filter == 'done' %}selected{% endif %}>Done</option>
+                </select>
+                <input type="submit" value="filter">
+            </form>
+        </div>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th colspan="2">Action</th>
+
+            </tr>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.id}}</td>
+                <td>{{ row.task }}</td>
+                <td>{{ row.status }}</td>
+                <td>{{ row.created_at }}</td>
+                <td>{{ row.updated_at }}</td>
+                <td><a href="view.php?id={{ row.id }}">View</a></td>
+                <td><a href="edit.php?id={{ row.id }}">Edit</a></td>
+            </tr>
+            {% endfor %}
+            </table>
+            <p>{{ rows_count }} row(s)</p>
+    </body>
+</html>

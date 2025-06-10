@@ -1,0 +1,15 @@
+{
+    "name": "uph/database",
+    "autoload": {
+        "psr-4": {
+            "Uph\\Database\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "whoiswens",
+            "email": "harry.owen1010@gmail.com"
+        }
+    ],
+    "require": {}
+}

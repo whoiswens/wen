@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <H1>New Task</H1>
+        <form action="{{action}}" method="POST">
+            <div>
+                <label>Task:</label>
+                <input type="text" name="task" value="{{task}}">
+            </div>
+            <div>
+                <label>Status:</label>
+                <select name="status">
+                    <option value="todo" {% if status == 'todo' %}selected{% endif %}>To Do</option>
+                    <option value="inprogress" {% if status == 'inprogress' %}selected{% endif %}>In Progressing</option>
+                    <option value="done" {% if status == 'done' %}selected{% endif %}>Done</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Simpan">
+            </div>
+            <div>
+                <a href="list.php">Kembali</a>
+            </div>
+        </form>
+    </body>
+</html>
